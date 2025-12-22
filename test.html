@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-bg">
+
+    <!-- 지도 + 헤더 + 말풍선 -->
+    <div class="map-container">
+
+      <!-- 헤더 -->
+      <header class="custom-header">
+
+        <div class="header-left"></div>
+        <div class="header-middle"></div>
+        <div class="header-right"></div>
+
+        <!-- CI 로고 -->
+        <img class="CI" src="./image/CI.svg" alt="설명 텍스트" loading="lazy">
+
+        <!-- 날짜 + 공지 -->
+        <div class="top-info-bar">
+          <div class="top-info">
+
+            <div class="info-row-1">
+              <img class="info-weather-icon" src="./image/alarm.svg" alt="alarm">
+              <span class="info-date">2025-09-23</span>
+              <span class="info-time">PM 10:28</span>
+              <div class="info-divider"></div>
+              <img class="info-weather-icon" src="./image/wb_sunny.svg" alt="weather">
+              <span class="info-weather">맑음</span>
+            </div>
+
+            <div class="info-row-2">
+              <span class="info-notice-label">공지</span>
+              <div class="info-divider"></div>
+              <span class="info-notice-text">국내 기업, 친환경 기술 개발로 글로벌 시장 진출</span>
+            </div>
+
+          </div>
+        </div>
+
+      </header>
+
+      <!-- ===================== 말풍선들 ===================== -->
+
+      <!-- 한국철도공사 -->
+      <div class="balloon-wrapper korail"
+           data-x="0.72"
+           data-y="0.16">
+
+        <!-- 작은 말풍선 -->
+        <div class="balloon-small">
+          <div class="balloon-label pink">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>한국철도공사</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-left.svg" alt="balloon">
+        </div>
+
+        <!-- 팝업 -->
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span class="popup-title">한국철도공사</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 대전역사 -->
+      <div class="balloon-wrapper daejeon-station"
+           data-x="0.31"
+           data-y="0.06">
+
+        <div class="balloon-small">
+          <div class="balloon-label pink">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>대전역사</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-right.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">대전역사</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 대전역 지하상가 -->
+      <div class="balloon-wrapper daejeon-underground-mall"
+           data-x="0.19"
+           data-y="0.32">
+
+        <div class="balloon-small">
+          <div class="balloon-label green">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>대전역 지하상가</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-right.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">대전역 지하상가</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 제 3 공영주차장 -->
+      <div class="balloon-wrapper public-parking-3"
+           data-x="0.21"
+           data-y="0.53">
+
+        <div class="balloon-small">
+          <div class="balloon-label lightblue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>제 3 공영주차장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-right.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">제 3 공영주차장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 양키시장 -->
+      <div class="balloon-wrapper yankee-market"
+           data-x="0.34"
+           data-y="0.46">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>양키시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-down.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">양키시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 대전도매시장 -->
+      <div class="balloon-wrapper daejeon-wholesale-market"
+           data-x="0.49"
+           data-y="0.37">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>대전도매시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-down-left.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">대전도매시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 역전시장 -->
+      <div class="balloon-wrapper yeokjeon-market"
+           data-x="0.71"
+           data-y="0.42">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>역전시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-left.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">역전시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 대전중앙시장 -->
+      <div class="balloon-wrapper daejeon-central-market"
+           data-x="0.64"
+           data-y="0.58">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>대전중앙시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-left.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">대전중앙시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 중앙종합시장 -->
+      <div class="balloon-wrapper jungang-general-market"
+           data-x="0.55"
+           data-y="0.72">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>중앙종합시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-left.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">중앙종합시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 자유도매시장 -->
+      <div class="balloon-wrapper jayu-wholesale-market"
+           data-x="0.38"
+           data-y="0.65">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>자유도매시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-right.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">자유도매시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 국제시장 -->
+      <div class="balloon-wrapper international-market"
+           data-x="0.42"
+           data-y="0.87">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>국제시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-right.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">국제시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 중앙도매시장 -->
+      <div class="balloon-wrapper jungang-wholesale-market"
+           data-x="0.68"
+           data-y="0.77">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>중앙도매시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-up.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">중앙도매시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 신중앙시장 -->
+      <div class="balloon-wrapper new-jungang-market"
+           data-x="0.80"
+           data-y="0.77">
+
+        <div class="balloon-small">
+          <div class="balloon-label blue">
+            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <span>신중앙시장</span>
+          </div>
+          <img class="balloon-base" src="./image/balloon-white-down-left.svg" alt="balloon">
+        </div>
+
+        <div class="balloon-popup">
+          <div class="popup-header">
+            <span class="popup-arrow">˄</span>
+            <span class="popup-title">신중앙시장</span>
+            <button class="popup-search-btn" type="button">🔍</button>
+          </div>
+
+          <div class="popup-body">
+            <div class="popup-col">
+              <div class="popup-col-label">수요</div>
+              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <div class="popup-col-value popup-col-value--orange">
+                980 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">공급</div>
+              <div class="popup-col-icon popup-col-icon--green"></div>
+              <div class="popup-col-value popup-col-value--green">
+                480 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+            <div class="popup-col">
+              <div class="popup-col-label">부족</div>
+              <div class="popup-col-icon popup-col-icon--red"></div>
+              <div class="popup-col-value popup-col-value--red">
+                500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- map-container -->
+
+  </div> <!-- page-bg -->
+
+  <script src="map.js"></script>
+</body>
+</html>

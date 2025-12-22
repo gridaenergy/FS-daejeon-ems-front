@@ -1,0 +1,304 @@
+/* 전역 초기화 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 1) 전체 화면에 지도 배경 깔기 (cover + 가운데 기준 잘림) */
+.page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+
+  background: url("./image/map-bg.png") center center no-repeat;
+  background-size: cover;   /* 🔥 가로 줄어들면 양옆이 잘리도록 */
+}
+
+/* 2) 지도 위에 올라가는 레이어 (좌표 기준) */
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* map-container 자체는 투명: 배경은 page-bg에 있음 */
+}
+
+/* ---------------- 헤더 ---------------- */
+
+.custom-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 78px;
+  display: flex;
+  z-index: 10;
+  background: transparent;
+}
+
+.header-left {
+  width: 309px;
+  background: url("./image/header-left.svg") no-repeat left center;
+  Z-INDEX: 1;
+}
+.header-middle {
+  flex: 1;
+  background: url("./image/header-middle.svg") repeat-x center;
+  background-size: auto 100%;
+  margin-left: -40px;
+  margin-right: -40px;
+}
+.header-right {
+  width: 530px;
+  background: url("./image/header-right.svg") no-repeat right center;
+}
+
+.CI {
+  position: absolute;
+  top: 7px;
+  left: 40px;
+  width: 191px;
+  z-index: 11;
+}
+
+/* 날짜/공지 */
+.top-info-bar {
+  position: absolute;
+  top: 12px;
+  right: 55px;
+  z-index: 12;
+}
+
+.top-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.info-row-1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  color: #90ACD0;
+}
+
+.info-row-2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 19px;
+}
+
+.info-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.info-weather-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------------- 말풍선 ---------------- */
+
+/* 말풍선 전체 위치 (지도 기준 % 값) */
+.balloon-wrapper {
+  position: absolute;
+  transform: translateX(-50%);  /* 중앙 정렬만 */
+  z-index: 20;
+}
+
+/* 흰 말풍선 PNG */
+.balloon-base {
+  width: 221px;           /* PNG 가로 크기 */
+  height: auto;
+  display: block;
+  filter: drop-shadow(0px 0px 8.7px rgba(53, 53, 53, 0.25));
+}
+
+/* 위에 얹는 핑크 박스 + 텍스트 */
+.balloon-label {
+  position: absolute;
+  top: 16px;               /* PNG 안에서 내려오는 정도 */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #ffffff;
+  /* padding: 5px 40px;      */
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  white-space: nowrap;    /* 한 줄 유지 */
+  Z-INDEX: 1;
+  justify-content: center;   /* 🔹 텍스트+아이콘 가운데 정렬 */
+  width: 180px;              /* 🔹 핑크 박스 가로 고정값 (숫자는 네가 맞춰보기) */
+  padding: 6px 0;            /* 🔹 위아래만 padding, 좌우는 0 */
+  
+}
+
+.balloon-label.pink   { background: #F3AEC0; }
+.balloon-label.green   { background: #9BD29B; }
+.balloon-label.lightblue   { background: #8BC4D2; }
+.balloon-label.blue   { background: #7EA8DE; }
+
+.label-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+}
+
+
+/* .balloon-wrapper:hover .balloon-label {
+  background-color: #C58D9C;   
+  transition: background-color 0.2s ease-in-out;
+} */
+
+.balloon-wrapper:hover .balloon-label.pink {
+  background: #C58D9C;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.balloon-wrapper:hover .balloon-label.green {
+  background: #79A279;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.balloon-wrapper:hover .balloon-label.lightblue {
+  background: #74A2AD;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.balloon-wrapper:hover .balloon-label.blue {
+  background: #587499;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* 기본 상태: 작은 말풍선만 보이게 */
+.balloon-small {
+  position: relative;
+}
+
+.balloon-popup {
+  display: none;          /* 처음에는 숨김 */
+  position: relative;
+}
+
+/* is-open 이 붙으면 -> 작은 말풍선 숨기고 팝업 보이기 */
+.balloon-wrapper.is-open .balloon-small {
+  display: none;
+}
+
+.balloon-wrapper.is-open .balloon-popup {
+  display: block;
+}
+
+/* ===== 팝업 스타일 ===== */
+
+.balloon-popup {
+  min-width: 260px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  padding: 12px 16px 14px;
+}
+
+/* 상단 핑크 헤더 */
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F95C9B;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+
+.popup-arrow {
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+.popup-title {
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+}
+
+/* 오른쪽 검색 버튼 모양 */
+.popup-search-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.25);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 본문 3컬럼 */
+.popup-body {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.popup-col {
+  text-align: center;
+  flex: 1;
+}
+
+/* 상단 텍스트 라벨 (수요/공급/부족) */
+.popup-col-label {
+  font-size: 14px;
+  color: #999999;
+  margin-bottom: 6px;
+}
+
+/* 동그란 아이콘 대신 간단한 원형 블럭 */
+.popup-col-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin: 0 auto 6px;
+}
+
+.popup-col-icon--orange { background: #F79A2E; }
+.popup-col-icon--green  { background: #76C85A; }
+.popup-col-icon--red    { background: #D4476A; }
+
+/* 숫자 값 */
+.popup-col-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.popup-col-value--orange { color: #FF8A00; }
+.popup-col-value--green  { color: #43C048; }
+.popup-col-value--red    { color: #F14A7A; }
+
+.popup-unit {
+  font-size: 14px;
+  color: #b3b3b3;
+}
