@@ -2,63 +2,105 @@ window.addEventListener("load", updateBalloons);
 window.addEventListener("resize", updateBalloons);
 
 function updateBalloons() {
-  // 1) 원본 지도 이미지 해상도 (map-bg.png의 실제 크기)
-  const MAP_W = 1920;
-  const MAP_H = 945;
+    const MAP_W = 1920;
+    const MAP_H = 945;
+    const map = document.querySelector(".map-container");
+    const balloons = document.querySelectorAll(".balloon-wrapper");
+    if (!map || !balloons.length) return;
 
-  const map = document.querySelector(".map-container");
-  const balloons = document.querySelectorAll(".balloon-wrapper");
-  if (!map || !balloons.length) return;
+    const cw = map.clientWidth;
+    const ch = map.clientHeight;
+    const scale = Math.max(cw / MAP_W, ch / MAP_H);
+    const drawW = MAP_W * scale;
+    const drawH = MAP_H * scale;
+    const offsetX = (cw - drawW) / 2;
+    const offsetY = (ch - drawH) / 2;
 
-  const cw = map.clientWidth;
-  const ch = map.clientHeight;
-  
-  // background-size: cover 와 동일한 스케일 계산
-  const scale = Math.max(cw / MAP_W, ch / MAP_H);
-
-  const drawW = MAP_W * scale;
-  const drawH = MAP_H * scale;
-
-  const offsetX = (cw - drawW) / 2;
-  const offsetY = (ch - drawH) / 2;
-
-  // ⭐ 모든 풍선을 순회하면서, 각 풍선의 data-x / data-y 를 사용
-  balloons.forEach(balloon => {
-    const relX = parseFloat(balloon.dataset.x); // 0 ~ 1
-    const relY = parseFloat(balloon.dataset.y);
-
-    if (isNaN(relX) || isNaN(relY)) return;
-
-    const screenX = offsetX + drawW * relX;
-    const screenY = offsetY + drawH * relY;
-
-    // 👉 여기서 '좌표 보정만' 수행: left/top만 건드림
-    balloon.style.left = `${screenX}px`;
-    balloon.style.top  = `${screenY}px`;
-  });
+    balloons.forEach(balloon => {
+        const relX = parseFloat(balloon.dataset.x);
+        const relY = parseFloat(balloon.dataset.y);
+        if (isNaN(relX) || isNaN(relY)) return;
+        balloon.style.left = `${offsetX + drawW * relX}px`;
+        balloon.style.top = `${offsetY + drawH * relY}px`;
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const balloons = document.querySelectorAll(".balloon-wrapper");
+    const allBalloons = document.querySelectorAll(".balloon-wrapper");
 
-  balloons.forEach(b => {
-    b.addEventListener("click", (e) => {
-      e.stopPropagation(); // 버블링 방지 (필요하면)
-      
-      // 1) 다른 풍선은 모두 닫고
-      balloons.forEach(other => {
-        if (other !== b) {
-          other.classList.remove("is-open");
-        }
-      });
-
-      // 2) 이 풍선만 토글
-      b.classList.toggle("is-open");
+    // 1. 상세 팝업 내부 클릭 시 닫히지 않도록 전파 차단
+    document.querySelectorAll('.popup-detail').forEach(popup => {
+        popup.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+        });
     });
-  });
 
-  // 바깥 아무 곳 클릭하면 전부 닫기 (선택 사항)
-  document.addEventListener("click", () => {
-    balloons.forEach(b => b.classList.remove("is-open"));
-  });
-});
+    // 2. 말풍선 클릭 이벤트 (토글)
+    allBalloons.forEach(b => {
+        b.addEventListener("click", (e) => {
+            
+            if (e.target.closest('.popup-search-btn') || e.target.closest('.detail-close')) {
+                return; 
+            }
+
+            e.stopPropagation();
+            
+            // 다른 말풍선 닫기
+            allBalloons.forEach(other => {
+                if (other !== b) {
+                    other.classList.remove("is-open");
+                    const otherDetail = other.querySelector('.popup-detail');
+                    if (otherDetail) otherDetail.style.display = 'none';
+                }
+            });
+
+            const isOpen = b.classList.contains("is-open");
+            const detailPopup = b.querySelector('.popup-detail');
+
+            if (!isOpen) {
+                if (detailPopup) detailPopup.style.display = 'none';
+                b.classList.add("is-open");
+            } else {
+                if (detailPopup) detailPopup.style.display = 'none';
+                b.classList.remove("is-open");
+                b.style.zIndex = "";
+            }
+        });
+    });
+
+    // 3. 바탕화면 클릭 시 모든 것 초기화
+    document.addEventListener("click", (e) => {
+        const isInsideBalloon = e.target.closest('.balloon-wrapper');
+        if (!isInsideBalloon) {
+            allBalloons.forEach(b => {
+                b.classList.remove("is-open");
+                const detailPopup = b.querySelector('.popup-detail');
+                if (detailPopup) detailPopup.style.display = 'none';
+                b.style.zIndex = "";
+            });
+        }
+    });
+}); // <--- DOMContentLoaded 끝
+
+// 4. 상세 팝업 열기/닫기 함수 (HTML onclick 연결용)
+function toggleDetail(btn, event) {
+    event.stopPropagation();
+    const wrapper = btn.closest('.balloon-wrapper');
+    const detailPopup = wrapper.querySelector('.popup-detail');
+
+    if (detailPopup) {
+        detailPopup.style.display = 'block';
+        wrapper.style.zIndex = "1000";
+    }
+}
+
+function closeDetail(btn, event) {
+    event.stopPropagation();
+    const wrapper = btn.closest('.balloon-wrapper');
+    const detailPopup = wrapper.querySelector('.popup-detail');
+
+    if (detailPopup) {
+        detailPopup.style.display = 'none';
+        wrapper.style.zIndex = "";
+    }
+}

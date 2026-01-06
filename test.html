@@ -65,31 +65,82 @@
         <!-- 팝업 -->
         <div class="balloon-popup">
           <div class="popup-header">
-            <img src="./image/dropbox.svg" class="label-icon" alt="">
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">한국철도공사</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-pink.svg" alt="검색" class="search-icon-img">
+            </button>    
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">한국철도공사</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/korail-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">한국철도공사</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">공공건물</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중앙로 240</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="연락처"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -97,10 +148,7 @@
       </div>
 
       <!-- 대전역사 -->
-      <div class="balloon-wrapper daejeon-station"
-           data-x="0.31"
-           data-y="0.06">
-
+      <div class="balloon-wrapper daejeon-station" data-x="0.31" data-y="0.06">
         <div class="balloon-small">
           <div class="balloon-label pink">
             <img src="./image/dropbox.svg" class="label-icon" alt="">
@@ -108,34 +156,65 @@
           </div>
           <img class="balloon-base" src="./image/balloon-white-right.svg" alt="balloon">
         </div>
-
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">대전역사</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-pink.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
-
           <div class="popup-body">
-            <div class="popup-col">
-              <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
-              <div class="popup-col-value popup-col-value--orange">
-                980 <span class="popup-unit">kWh</span>
+            <div class="popup-col"><div class="popup-col-label">수요</div><img src="./image/icon-demand-5.png" class="icon-energy-stack"><div class="popup-col-value popup-col-value--orange">980 <span class="popup-unit">kWh</span></div></div>
+            <div class="popup-col"><div class="popup-col-label">공급</div><img src="./image/icon-supply-3.png" class="icon-energy-stack"><div class="popup-col-value popup-col-value--green">480 <span class="popup-unit">kWh</span></div></div>
+            <div class="popup-col"><div class="popup-col-label">부족</div><img src="./image/icon-shortage-3.png" class="icon-energy-stack"><div class="popup-col-value popup-col-value--red">500 <span class="popup-unit">kWh</span></div></div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">대전역사</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/daejeon-station-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="popup-col">
-              <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
-              <div class="popup-col-value popup-col-value--green">
-                480 <span class="popup-unit">kWh</span>
-              </div>
-            </div>
-            <div class="popup-col">
-              <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
-              <div class="popup-col-value popup-col-value--red">
-                500 <span class="popup-unit">kWh</span>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">대전역사</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">공공건물 (철도역)</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중앙로 215</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="연락처"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -157,31 +236,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">대전역 지하상가</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-green.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">대전역 지하상가</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/underground-mall-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">대전역 지하상가</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">공공시설 (지하상가)</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중앙로 지하 200</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -203,31 +333,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">제 3 공영주차장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-lightblue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
-                500 <span class="popup-unit">kWh</span>
+                500 <span class="popup-unit">kWh</span>               
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">제 3 공영주차장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/public-parking-3-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">제 3 공영주차장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">공공시설 (주차장)</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중동 93-2</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -249,31 +430,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">양키시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">양키시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-small-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">양키시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">시장</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중앙로200번길 25</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -295,31 +527,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">대전도매시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">대전도매시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-large-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">대전도매시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">상업시설 (시장)</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 대전로785번길 10</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -341,31 +624,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">역전시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">역전시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-large-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">역전시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">시장</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 역전시장길 53</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -387,31 +721,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">대전중앙시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">대전중앙시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-large-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">대전중앙시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">시장</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 대전로 783</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -433,31 +818,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">중앙종합시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">중앙종합시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-small-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">중앙종합시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">시장</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중교로 119</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -479,31 +915,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">자유도매시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">자유도매시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-small-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">자유도매시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">상업시설 (시장)</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중앙로200번길 40</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -525,31 +1012,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">국제시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">국제시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-large-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">국제시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">시장</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 원동 406-2</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -571,31 +1109,82 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">중앙도매시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
+              </div>
+            </div>
+          </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">중앙도매시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-small-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">중앙도매시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">시장</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중앙로200번길 73</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -617,36 +1206,117 @@
 
         <div class="balloon-popup">
           <div class="popup-header">
-            <span class="popup-arrow">˄</span>
+            <img src="./image/icon-box-open.svg" class="label-icon" alt="">
             <span class="popup-title">신중앙시장</span>
-            <button class="popup-search-btn" type="button">🔍</button>
+            <button class="popup-search-btn" type="button" onclick="toggleDetail(this, event)">
+              <img src="./image/search-icon-blue.svg" alt="검색" class="search-icon-img">
+            </button>
           </div>
 
           <div class="popup-body">
             <div class="popup-col">
               <div class="popup-col-label">수요</div>
-              <div class="popup-col-icon popup-col-icon--orange"></div>
+              <img src="./image/icon-demand-5.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--orange">
                 980 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">공급</div>
-              <div class="popup-col-icon popup-col-icon--green"></div>
+              <img src="./image/icon-supply-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--green">
                 480 <span class="popup-unit">kWh</span>
               </div>
             </div>
             <div class="popup-col">
               <div class="popup-col-label">부족</div>
-              <div class="popup-col-icon popup-col-icon--red"></div>
+              <img src="./image/icon-shortage-3.png" alt="검색" class="icon-energy-stack">
               <div class="popup-col-value popup-col-value--red">
                 500 <span class="popup-unit">kWh</span>
               </div>
             </div>
           </div>
+          <div class="popup-detail" style="display: none;">
+            <button class="detail-close" onclick="closeDetail(this, event)">
+              <img src="./image/close-icon.svg" alt="닫기" class="close-icon-img">
+            </button>
+            
+            <div class="detail-container">
+              <div class="detail-title-tag">신중앙시장</div>
+              
+              <div class="detail-top-row">
+                <div class="top-card building-card">
+                  <img src="./image/market-small-3d.png" alt="건물">
+                </div>
+                
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">수요량</div> <div class="stat-body">
+                      <img src="./image/icon-demand-5.png" alt="수요 아이콘"> </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    980 <span class="unit">kWh</span>
+                  </div>
+                </div>
+
+                <div class="top-card stat-card">
+                  <div class="stat-upper">
+                    <div class="stat-header">공급량</div>
+                    <div class="stat-body">
+                      <img src="./image/icon-supply-3.png" alt="공급 아이콘">
+                    </div>
+                  </div>
+                  <div class="stat-footer-bar">
+                    480 <span class="unit">kWh</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="detail-info-section">
+                <div class="info-tab">거래자 기본 정보</div>
+                <div class="info-grid">
+                  <div class="info-row"><img src="./image/icon-building.svg" class="info-icon" alt="건물"><div class="label">건물명</div><div class="content">신중앙시장</div></div>
+                  <div class="info-row"><img src="./image/icon-user.svg" class="info-icon" alt="유형"><div class="label">유형</div><div class="content">시장</div></div>
+                  <div class="info-row"><img src="./image/icon-location.svg" class="info-icon" alt="주소"><div class="label">주소</div><div class="content">대전 동구 중앙로200번길 85</div></div>
+                  <div class="info-row"><img src="./image/icon-phone.svg" class="info-icon" alt="월간 수요량"><div class="label">연락처</div><div class="content">010-3009-5919 (관리자)</div></div>
+                  <div class="info-row"><img src="./image/icon-demand-month.svg" class="info-icon" alt="월간 수요량"><div class="label">월간<br>수요량</div><div class="content">50kWh</div></div>
+                  <div class="info-row"><img src="./image/icon-supply-month.svg" class="info-icon" alt="월간 공급량"><div class="label">월간<br>공급량</div><div class="content">2,000kWh</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <div class="uems-summary-box">
+  <div class="uems-header">대전 도시에너지 운영 시스템 (UEMS)</div>
+  <div class="uems-body">
+    <div class="uems-left-panel">
+      <div class="uems-label">전력 자립률</div>
+      <div class="uems-gauge-container">
+        <img src="./image/indicator-energy-level.svg" alt="gauge" class="uems-gauge-img">
+        <div class="uems-percent-value">
+          <img src="./image/uems-wave-bg.svg" alt="wave" class="uems-wave-img">
+          <div class="uems-value-text">
+          <img src="./image/bolt-icon.svg" class="bolt-icon"> 43 <span class="percent-unit">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uems-right-panel">
+      <div class="uems-stat-row lightblue">
+        <div class="stat-label">재생에너지<br>발전량</div>
+        <div class="stat-divider"></div>
+        <div class="stat-value">20,000 <span class="unit">kWh</span></div>
+      </div>
+      <div class="uems-stat-row peach">
+        <div class="stat-label">수요량</div>
+        <div class="stat-divider"></div>
+        <div class="stat-value">15,000 <span class="unit">kWh</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
     </div> <!-- map-container -->
 
