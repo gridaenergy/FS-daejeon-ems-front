@@ -1014,3 +1014,60 @@ body {
     font-size: 16px;
     margin-left: 2px;
 }
+
+@media screen and (max-width: 1919px) {
+  /* 1. 요약 박스 전체 크기 및 여백 설정 */
+  .uems-summary-box {
+    width: auto;
+    max-width: 400px;
+    padding: 10px;
+    bottom: 15px;
+    left: 15px;
+  }
+  
+
+  .uems-body {
+    display: flex;
+    gap: 10px;
+    height: 155px; 
+  }
+
+  /* 3. 왼쪽 패널: 바디 높이에 맞춤 */
+  .uems-left-panel {
+    width: 155px;
+    height: 100%;  /* 부모 높이(155px)를 꽉 채움 */
+    padding-top: 10px;
+  }
+  
+  /* 내부 요소 크기 조절 (기존 유지) */
+  .uems-gauge-img { width: 85px; padding-bottom: 5px; }
+  .uems-percent-value { height: 44px; margin-top: 0; }
+  .uems-value-text { font-size: 18px; gap: 4px; }
+  .bolt-icon { width: 12px; }
+  .percent-unit { font-size: 14px; }
+
+  /* 4. 오른쪽 패널: 'flex'로 자식들을 관리 */
+  .uems-right-panel {
+    width: 210px;
+    height: 100%;       /* 부모 높이(155px)를 꽉 채움 */
+    display: flex;      
+    flex-direction: column;
+    gap: 8px;           /* 박스 사이 간격 */
+  }
+
+
+  .uems-stat-row {
+    padding: 0 10px;
+    width: 100% !important;
+    
+
+    flex: 1;            
+    display: flex;
+    align-items: center;
+  }
+  
+  /* 텍스트 크기 조절 (기존 유지) */
+  .stat-label { font-size: 13px; white-space: nowrap; }
+  .stat-value { font-size: 17px; text-align: right; }
+  .unit { font-size: 12px; }
+}
