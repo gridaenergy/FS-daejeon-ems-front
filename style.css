@@ -1035,7 +1035,7 @@ body {
   /* 3. 왼쪽 패널: 바디 높이에 맞춤 */
   .uems-left-panel {
     width: 155px;
-    height: 100%;  /* 부모 높이(155px)를 꽉 채움 */
+    height: 100%;  /* 부모 높이를 꽉 채움 */
     padding-top: 10px;
   }
   
@@ -1049,7 +1049,7 @@ body {
   /* 4. 오른쪽 패널: 'flex'로 자식들을 관리 */
   .uems-right-panel {
     width: 210px;
-    height: 100%;       /* 부모 높이(155px)를 꽉 채움 */
+    height: 100%;       /* 부모 높이를 꽉 채움 */
     display: flex;      
     flex-direction: column;
     gap: 8px;           /* 박스 사이 간격 */
@@ -1073,5 +1073,5 @@ body {
 }
 
 .balloon-wrapper.on-top {
-    z-index: 999 !important; /* 다른 말풍선(z-index: 20)보다 압도적으로 높게 */
+    z-index: 999 !important; 
 }

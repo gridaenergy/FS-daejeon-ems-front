@@ -25,7 +25,7 @@ function updateBalloons() {
     });
 }
 
-// ✅ [핵심 함수] 모든 말풍선의 우선순위를 초기화하는 함수
+// 모든 말풍선의 우선순위를 초기화하는 함수
 function resetAllZIndex() {
     document.querySelectorAll('.balloon-wrapper').forEach(wrapper => {
         wrapper.style.zIndex = "";       // 인라인 스타일 초기화
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             e.stopPropagation();
             
-            // 🔥 [수정] 다른 말풍선 닫으면서 z-index도 확실히 초기화
+            
             allBalloons.forEach(other => {
                 if (other !== b) {
                     other.classList.remove("is-open");
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // 열릴 때
                 if (detailPopup) detailPopup.style.display = 'none';
                 b.classList.add("is-open");
-                // 작은 말풍선도 살짝 위로 오게 하려면 여기서 zIndex 조정 가능 (선택사항)
+                
                 b.style.zIndex = "50"; 
             } else {
                 // 닫힐 때
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleDetail(btn, event) {
     event.stopPropagation();
     
-    // 🔥 [수정] 열기 전에 무조건 모든 놈들의 점수를 깎습니다 (초기화)
+    
     resetAllZIndex();
 
     const wrapper = btn.closest('.balloon-wrapper');
@@ -112,7 +112,7 @@ function toggleDetail(btn, event) {
 
     if (detailPopup) {
         detailPopup.style.display = 'block';
-        // 🔥 [수정] 그리고 얘한테만 1000점을 줍니다. (이제 얘가 무조건 대장입니다)
+        
         wrapper.style.zIndex = "1000"; 
         wrapper.classList.add('on-top');
     }
@@ -126,7 +126,7 @@ function closeDetail(btn, event) {
 
     if (detailPopup) {
         detailPopup.style.display = 'none';
-        // 🔥 [수정] 닫을 때 점수 반납
+        
         wrapper.style.zIndex = "";
         wrapper.classList.remove('on-top');
     }
