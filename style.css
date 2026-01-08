@@ -1087,6 +1087,10 @@ body {
   .balloon-wrapper.new-jungang-market {
     margin-left: 30px !important; 
   }
+
+  .balloon-wrapper.jungang-general-market {
+    margin-top: -30px !important; 
+  }
 }
 
 .balloon-wrapper.on-top {
