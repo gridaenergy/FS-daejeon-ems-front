@@ -1070,6 +1070,23 @@ body {
   .stat-label { font-size: 13px; white-space: nowrap; }
   .stat-value { font-size: 17px; text-align: right; }
   .unit { font-size: 12px; }
+
+  .balloon-wrapper.international-market .popup-detail {
+    
+    top: -394px !important; 
+  }
+
+  .balloon-wrapper.international-market {
+    /* translate(-50%, -50px):
+       -50%: 가로 중앙 정렬 유지 (기존 설정)
+       -50px: 세로로 50px만큼 위로 이동 (음수 = 위쪽)
+    */
+    transform: translate(-50%, -30px) !important; 
+  }
+
+  .balloon-wrapper.new-jungang-market {
+    margin-left: 30px !important; 
+  }
 }
 
 .balloon-wrapper.on-top {

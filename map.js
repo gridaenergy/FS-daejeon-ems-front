@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const detailPopup = b.querySelector('.popup-detail');
                 if (detailPopup) detailPopup.style.display = 'none';
                 
-                // 🔥 [수정] 닫을 때 z-index 깨끗하게 청소
+                
                 b.style.zIndex = "";
                 b.classList.remove('on-top');
             });
