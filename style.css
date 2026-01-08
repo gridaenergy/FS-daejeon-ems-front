@@ -1071,3 +1071,7 @@ body {
   .stat-value { font-size: 17px; text-align: right; }
   .unit { font-size: 12px; }
 }
+
+.balloon-wrapper.on-top {
+    z-index: 999 !important; /* 다른 말풍선(z-index: 20)보다 압도적으로 높게 */
+}
